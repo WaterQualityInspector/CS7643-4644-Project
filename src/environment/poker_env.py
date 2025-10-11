@@ -2,7 +2,12 @@
 OpenSpiel environment wrapper for Stud Poker.
 """
 import numpy as np
-import pyspiel
+
+try:
+    import pyspiel
+except ImportError:
+    pyspiel = None
+    print("Warning: OpenSpiel not installed. Install it with: pip install open_spiel")
 
 
 class StudPokerEnv:
@@ -19,6 +24,12 @@ class StudPokerEnv:
             game_name: Name of the poker game (default: kuhn_poker)
             num_players: Number of players in the game
         """
+        if pyspiel is None:
+            raise ImportError(
+                "OpenSpiel is required but not installed. "
+                "Install it with: pip install open_spiel"
+            )
+        
         self.game_name = game_name
         self.num_players = num_players
         self.game = pyspiel.load_game(game_name)
