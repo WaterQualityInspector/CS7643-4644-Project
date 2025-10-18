@@ -97,20 +97,28 @@ class MississippiStudEnv:
     This matches table math where "pays X to 1" applies to each wager equally. 
     """
 
-    def __init__(self, ante=1, seed: Optional[int]=None):
+    def __init__(self, ante=1, seed: Optional[int]=None, friends: int = 0):
         self.ante = ante
         self.rng = random.Random(seed)
+        self.friends = friends  # number of friends (0 = normal)
         self.state: Optional[MsStudState] = None
+        self.friends_cards: List[str] = []
 
     # ---------- Game flow ----------
     def reset(self) -> MsStudState:
         st = MsStudState(rng_seed=self.rng.random(), ante=self.ante)
-        st.deck = shuffle_deck(self.rng)
+        deck = shuffle_deck(self.rng)
+        # Deal out friends' cards (burned from deck, visible to player)
+        self.friends_cards = []
+        if self.friends > 0:
+            for _ in range(self.friends * 2):
+                self.friends_cards.append(deck.pop())
         # Deal: 2 hole, 3 community face-down
-        st.hole = [st.deck.pop(), st.deck.pop()]
-        hidden_three = [st.deck.pop(), st.deck.pop(), st.deck.pop()]
-        st.hidden_community = hidden_three  # all face-down initially
-        st.community = []  # revealed list grows
+        st.hole = [deck.pop(), deck.pop()]
+        hidden_three = [deck.pop(), deck.pop(), deck.pop()]
+        st.deck = deck
+        st.hidden_community = hidden_three
+        st.community = []
         st.round_ix = 0
         st.placed_bets = []
         st.terminal = False
@@ -181,15 +189,18 @@ class MississippiStudEnv:
     def observation(self) -> Dict:
         st = self.state
         assert st is not None
-        return {
-            "round": st.round_ix,               # 0,1,2,3
+        obs = {
+            "round": st.round_ix,
             "hole": st.hole[:],
-            "community": st.community[:],       # revealed
+            "community": st.community[:],
             "legal_actions": self.legal_actions(),
             "placed_bets": st.placed_bets[:],
             "terminal": st.terminal,
             "last_reward": st.last_reward,
         }
+        if self.friends > 0:
+            obs["friends_cards"] = self.friends_cards[:]
+        return obs
 
     def info_state_key(self) -> str:
         """Deterministic string for tabular Q keys (compact, order-invariant)."""

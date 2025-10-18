@@ -7,6 +7,7 @@ This repository provides tools and simulation environments for Reinforcement Lea
 - Fast simulation of Mississippi Stud hands
 - Optimal policy evaluation (Kisenwether strategy)
 - Tabular Q-learning agent
+- Improved Tabular Q-learning agent (tq2)
 - Deep Q-Network (DQN) agent
 - Dueling DQN agent
 - PPO agent
@@ -66,7 +67,7 @@ uv pip install -r requirements.txt
 
 ### 2. Run Simulations & RL Agents
 
-- Run Kisenwether strategy, tabular Q, DQN, dueling DQN, and PPO agents from `src/`
+- Run Kisenwether strategy, tabular Q, improved tabular Q (tq2), DQN, dueling DQN, and PPO agents from `src/`
 - Example: Run analysis comparing all models:
 
 ```
@@ -77,6 +78,38 @@ python src/analysis_compare_models.py
 
 ```
 pytest
+```
+
+### Pytest for tq2
+
+To run only the tq2 agent test:
+
+```
+pytest tests/test_tq2_agent.py
+```
+
+This will check that the improved agent works with the friends feature and learns a nontrivial Q-table.
+
+## Improved Tabular Q-Learning (tq2)
+
+A new agent, `TabularQAgentV2` (tq2), is provided in `src/tq2.py` with:
+- Compact state abstraction for better generalization
+- Optimistic Q-value initialization to encourage exploration
+- Stronger reward shaping for reaching later rounds
+- Slower epsilon decay and higher initial exploration
+
+### Running the tq2 Agent
+
+To run the improved agent in your own script:
+
+```
+from msstud_spiel_shim import MsStudSpielGame
+from tq2 import TabularQAgentV2
+
+game = MsStudSpielGame(ante=1, seed=42)
+agent = TabularQAgentV2(game)
+agent.train(episodes=200000)
+# Evaluate or use agent.policy(state)
 ```
 
 ## Project Structure

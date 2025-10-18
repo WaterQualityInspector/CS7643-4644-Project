@@ -73,19 +73,19 @@ def main():
 
     # Tabular Q-Learning improvements
     tab_agent = TabularQAgent(game, alpha=0.1, gamma=1.0, epsilon=0.2)
-    analyze_model("Tabular Q-Learning", tab_agent, {"episodes":10000})
+    analyze_model("Tabular Q-Learning", tab_agent, {"episodes":100000})
 
     # DQN improvements
     dqn_agent = DQNAgent(game, lr=5e-4, gamma=1.0, epsilon=0.2, batch_size=128, double_dqn=True, prioritized_replay=True)
-    analyze_model("DQN", dqn_agent, {"episodes":5000})
+    analyze_model("DQN", dqn_agent, {"episodes":50000})
 
     # Dueling DQN improvements
     dueling_agent = DuelingDQNAgent(game, lr=5e-4, gamma=1.0, epsilon=0.2, batch_size=128, double_dqn=True, prioritized_replay=True)
-    analyze_model("Dueling DQN", dueling_agent, {"episodes":5000})
+    analyze_model("Dueling DQN", dueling_agent, {"episodes":50000})
 
     # PPO improvements
     ppo_agent = PPOAgent(game, lr=1e-4, gamma=1.0, clip=0.2, batch_size=256)
-    analyze_model("PPO", ppo_agent, {"episodes":3000})
+    analyze_model("PPO", ppo_agent, {"episodes":20000})
 
 if __name__ == "__main__":
     main()

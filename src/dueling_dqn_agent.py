@@ -35,15 +35,17 @@ class DuelingDQN(nn.Module):
         return qvals
 
 class DuelingDQNAgent:
-    def __init__(self, game, lr=1e-3, gamma=1.0, epsilon=0.1, batch_size=64, memory_size=10000, double_dqn=False, prioritized_replay=False):
+    def __init__(self, game, lr=5e-4, gamma=1.0, epsilon=0.2, batch_size=128, memory_size=20000, min_epsilon=0.01, epsilon_decay=0.9995, target_update=50, double_dqn=True):
         self.game = game
         self.gamma = gamma
         self.epsilon = epsilon
+        self.min_epsilon = min_epsilon
+        self.epsilon_decay = epsilon_decay
         self.batch_size = batch_size
         self.memory = []
         self.memory_size = memory_size
         self.double_dqn = double_dqn
-        self.prioritized_replay = prioritized_replay
+        self.target_update = target_update
         obs_len = len(game.new_initial_state().observation_tensor())
         self.model = DuelingDQN(obs_len, 4)
         self.target_model = DuelingDQN(obs_len, 4)
@@ -80,7 +82,9 @@ class DuelingDQNAgent:
         done = torch.FloatTensor([x[4] for x in batch])
         return s, a, r, s_next, done
 
-    def train(self, episodes=10000, target_update=100):
+    def train(self, episodes=20000, target_update=None):
+        if target_update is None:
+            target_update = self.target_update
         for ep in range(episodes):
             state = self.game.new_initial_state()
             while not state.is_terminal():
@@ -96,14 +100,21 @@ class DuelingDQNAgent:
                     self.learn()
             if ep % target_update == 0:
                 self.update_target()
+            # Decay epsilon
+            self.epsilon = max(self.min_epsilon, self.epsilon * self.epsilon_decay)
 
     def learn(self):
         s, a, r, s_next, done = self.sample()
         qvals = self.model(s)
         qval = qvals.gather(1, a.unsqueeze(1)).squeeze(1)
         with torch.no_grad():
-            next_qvals = self.target_model(s_next)
-            max_next_qval = next_qvals.max(1)[0]
+            if self.double_dqn:
+                next_actions = self.model(s_next).argmax(1)
+                next_qvals = self.target_model(s_next)
+                max_next_qval = next_qvals.gather(1, next_actions.unsqueeze(1)).squeeze(1)
+            else:
+                next_qvals = self.target_model(s_next)
+                max_next_qval = next_qvals.max(1)[0]
             target = r + self.gamma * max_next_qval * (1 - done)
         loss = self.loss_fn(qval, target)
         self.optimizer.zero_grad()
@@ -120,8 +131,8 @@ class DuelingDQNAgent:
 
 if __name__ == "__main__":
     game = MsStudSpielGame(ante=1, seed=42)
-    agent = DuelingDQNAgent(game, lr=1e-3, gamma=1.0, epsilon=0.1)
-    agent.train(episodes=5000)
+    agent = DuelingDQNAgent(game, lr=5e-4, gamma=1.0, epsilon=0.2)
+    agent.train(episodes=20000)
     # Evaluate learned policy
     returns = []
     for _ in range(200):

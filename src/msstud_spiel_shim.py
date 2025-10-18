@@ -15,9 +15,10 @@ ACTION_NAME = {0: "FOLD", 1: "BET_1x", 2: "BET_2x", 3: "BET_3x"}
 # ---------------- Game wrapper ----------------
 class MsStudSpielGame:
     """Lightweight stand-in for pyspiel.Game."""
-    def __init__(self, ante: int = 1, seed: Optional[int] = None, rng=None):
+    def __init__(self, ante: int = 1, seed: Optional[int] = None, rng=None, friends: int = 0):
         self._ante = ante
         self._seed = seed
+        self._friends = friends
         # Use a dedicated RNG for hand generation
         if rng is not None:
             self._rng = rng
@@ -27,7 +28,7 @@ class MsStudSpielGame:
     def new_initial_state(self):
         # Use a fresh random seed for each hand to ensure diversity
         hand_seed = self._rng.randint(0, 2**32 - 1)
-        return MsStudSpielState(self._ante, hand_seed)
+        return MsStudSpielState(self._ante, hand_seed, friends=self._friends)
 
     # API mirrors pyspiel.Game minimally
     def num_players(self) -> int:
@@ -46,9 +47,10 @@ class MsStudSpielGame:
 class MsStudSpielState:
     ante: int = 1
     seed: Optional[int] = None
+    friends: int = 0
 
     def __post_init__(self):
-        self._env = MississippiStudEnv(ante=self.ante, seed=self.seed)
+        self._env = MississippiStudEnv(ante=self.ante, seed=self.seed, friends=self.friends)
         self._state = self._env.reset()  # deals & hides community
         self._player = 0  # single-player game
         self._is_chance = False  # we fold chance into step() for simplicity
@@ -104,7 +106,8 @@ class MsStudSpielState:
         hole = "-".join(sorted(o["hole"]))
         comm = "-".join(sorted(o["community"]))
         bets = ",".join(map(str, o["placed_bets"]))
-        return f"r{o['round']}|h:{hole}|c:{comm}|b:{bets}"
+        friends = "-".join(sorted(o.get("friends_cards", [])))
+        return f"r{o['round']}|h:{hole}|c:{comm}|b:{bets}|f:{friends}"
 
     def information_state_string(self, player: int = 0) -> str:
         # Same as observation for a single-player perfect-information view
@@ -123,13 +126,13 @@ class MsStudSpielState:
         rnd = [0.0]*4
         rnd[o["round"]] = 1.0
 
-        # Encode seen cards (hole + revealed community)
+        # Encode seen cards (hole + revealed community + friends' cards)
         ranks = [0.0]*13
         suits = {"C":0.0,"D":0.0,"H":0.0,"S":0.0}
         def rank_int(cs):
             r = cs[0]
             return "23456789TJQKA".index(r)  # 0..12
-        for cs in o["hole"] + o["community"]:
+        for cs in o["hole"] + o["community"] + o.get("friends_cards", []):
             ranks[rank_int(cs)] += 1.0
             suits[cs[1]] += 1.0
 
