@@ -15,12 +15,19 @@ ACTION_NAME = {0: "FOLD", 1: "BET_1x", 2: "BET_2x", 3: "BET_3x"}
 # ---------------- Game wrapper ----------------
 class MsStudSpielGame:
     """Lightweight stand-in for pyspiel.Game."""
-    def __init__(self, ante: int = 1, seed: Optional[int] = None):
+    def __init__(self, ante: int = 1, seed: Optional[int] = None, rng=None):
         self._ante = ante
         self._seed = seed
+        # Use a dedicated RNG for hand generation
+        if rng is not None:
+            self._rng = rng
+        else:
+            self._rng = random.Random(seed)
 
     def new_initial_state(self):
-        return MsStudSpielState(self._ante, self._seed)
+        # Use a fresh random seed for each hand to ensure diversity
+        hand_seed = self._rng.randint(0, 2**32 - 1)
+        return MsStudSpielState(self._ante, hand_seed)
 
     # API mirrors pyspiel.Game minimally
     def num_players(self) -> int:
