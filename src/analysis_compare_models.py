@@ -84,7 +84,7 @@ def main():
     analyze_model("Dueling DQN", dueling_agent, {"episodes":5000})
 
     # PPO improvements
-    ppo_agent = PPOAgent(game, lr=1e-4, gamma=1.0, clip=0.2, batch_size=256, entropy_coef=0.02)
+    ppo_agent = PPOAgent(game, lr=1e-4, gamma=1.0, clip=0.2, batch_size=256)
     analyze_model("PPO", ppo_agent, {"episodes":3000})
 
 if __name__ == "__main__":
