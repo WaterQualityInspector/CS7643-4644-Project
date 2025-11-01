@@ -1,4 +1,38 @@
+# Python environments
 .venv/
+venv/
+env/
+
+# Python cache
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.Python
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# uv lock file - removed for flexibility
+uv.lock
+
+# Model outputs/logs
+logs/
+outputs/
+checkpoints/
+wandb/

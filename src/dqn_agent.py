@@ -7,6 +7,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from msstud_spiel_shim import MsStudSpielGame
+from gpu_utils import get_device, move_to_device
 
 class DQN(nn.Module):
     def __init__(self, input_dim, output_dim):
@@ -33,9 +34,13 @@ class DQNAgent:
         self.memory_size = memory_size
         self.double_dqn = double_dqn
         self.target_update = target_update
+        
+        # GPU setup
+        self.device = get_device()
+        
         obs_len = len(game.new_initial_state().observation_tensor())
-        self.model = DQN(obs_len, 4)
-        self.target_model = DQN(obs_len, 4)
+        self.model = DQN(obs_len, 4).to(self.device)
+        self.target_model = DQN(obs_len, 4).to(self.device)
         self.optimizer = optim.Adam(self.model.parameters(), lr=lr)
         self.loss_fn = nn.MSELoss()
         self.update_target()
@@ -46,7 +51,7 @@ class DQNAgent:
 
     def select_action(self, state):
         legal = state.legal_actions()
-        obs = torch.FloatTensor(state.observation_tensor()).unsqueeze(0)
+        obs = torch.FloatTensor(state.observation_tensor()).unsqueeze(0).to(self.device)
         if np.random.rand() < self.epsilon:
             return np.random.choice(legal)
         with torch.no_grad():
@@ -62,11 +67,11 @@ class DQNAgent:
     def sample(self):
         idx = np.random.choice(len(self.memory), self.batch_size)
         batch = [self.memory[i] for i in idx]
-        s = torch.FloatTensor([x[0] for x in batch])
-        a = torch.LongTensor([x[1] for x in batch])
-        r = torch.FloatTensor([x[2] for x in batch])
-        s_next = torch.FloatTensor([x[3] for x in batch])
-        done = torch.FloatTensor([x[4] for x in batch])
+        s = torch.FloatTensor([x[0] for x in batch]).to(self.device)
+        a = torch.LongTensor([x[1] for x in batch]).to(self.device)
+        r = torch.FloatTensor([x[2] for x in batch]).to(self.device)
+        s_next = torch.FloatTensor([x[3] for x in batch]).to(self.device)
+        done = torch.FloatTensor([x[4] for x in batch]).to(self.device)
         return s, a, r, s_next, done
 
     def train(self, episodes=20000, target_update=None):
@@ -110,7 +115,7 @@ class DQNAgent:
 
     def policy(self, state):
         legal = state.legal_actions()
-        obs = torch.FloatTensor(state.observation_tensor()).unsqueeze(0)
+        obs = torch.FloatTensor(state.observation_tensor()).unsqueeze(0).to(self.device)
         with torch.no_grad():
             qvals = self.model(obs).cpu().numpy()[0]
         legal_qvals = [qvals[a] for a in legal]

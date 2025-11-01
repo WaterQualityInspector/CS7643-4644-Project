@@ -1,0 +1,71 @@
+[project]
+name = "cs7643-4644-project"
+version = "0.1.0"
+description = "CS7643/4644 Machine Learning Project"
+requires-python = ">=3.11"
+# Core dependencies - feel free to modify versions as needed
+dependencies = [
+    "numpy>=1.24.0",          # Can upgrade for newer features
+    "pandas>=2.0.0",          # Flexible for data manipulation needs
+    "matplotlib>=3.6.0",      # Plotting - upgrade for new features
+    "seaborn>=0.12.0",        # Statistical plotting
+    "scikit-learn>=1.3.0",    # ML algorithms - can upgrade for new models
+    "jupyter>=1.0.0",         # Notebooks for analysis
+    "ipykernel>=6.20.0",      # Jupyter kernel support
+    "tqdm>=4.64.0",           # Progress bars
+]
+
+[project.optional-dependencies]
+# Development tools - modify as your team prefers
+dev = [
+    "pytest>=7.0.0",         # Testing framework
+    "pytest-cov>=4.0.0",     # Coverage reporting
+    "black>=23.0.0",         # Code formatter - can use other formatters
+    "isort>=5.12.0",         # Import sorting
+    "flake8>=6.0.0",         # Linting - can substitute with ruff, pylint, etc.
+    "mypy>=1.0.0",           # Type checking - optional for research code
+]
+
+# Deep learning dependencies - install separately for flexibility
+# PyTorch: uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+# TensorFlow: uv pip install tensorflow[and-cuda] (if needed)
+# Other ML: uv pip install transformers accelerate datasets (for NLP/LLM work)
+
+# No build system needed for development/research projects
+# [build-system]
+# requires = ["hatchling"]
+# build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-v --tb=short"
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+src_paths = ["src", "tests"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true

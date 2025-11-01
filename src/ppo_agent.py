@@ -7,6 +7,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from msstud_spiel_shim import MsStudSpielGame
+from gpu_utils import get_device, move_to_device
 
 __all__ = ["PPOAgent"]
 
@@ -32,14 +33,18 @@ class PPOAgent:
         self.clip = clip
         self.batch_size = batch_size
         self.epochs = epochs
+        
+        # GPU setup
+        self.device = get_device()
+        
         obs_len = len(game.new_initial_state().observation_tensor())
-        self.model = ActorCritic(obs_len, 4)
+        self.model = ActorCritic(obs_len, 4).to(self.device)
         self.optimizer = optim.Adam(self.model.parameters(), lr=lr)
         self.memory = []
 
     def select_action(self, state):
         legal = state.legal_actions()
-        obs = torch.FloatTensor(state.observation_tensor()).unsqueeze(0)
+        obs = torch.FloatTensor(state.observation_tensor()).unsqueeze(0).to(self.device)
         logits, _ = self.model(obs)
         logits = logits.detach().cpu().numpy()[0]
         legal_logits = np.array([logits[a] for a in legal])
@@ -71,12 +76,12 @@ class PPOAgent:
 
     def learn(self):
         batch = self.memory
-        s = torch.FloatTensor([x[0] for x in batch])
-        a = torch.LongTensor([x[1] for x in batch])
-        old_p = torch.FloatTensor([x[2] for x in batch])
-        r = torch.FloatTensor([x[3] for x in batch])
-        s_next = torch.FloatTensor([x[4] for x in batch])
-        done = torch.FloatTensor([x[5] for x in batch])
+        s = torch.FloatTensor([x[0] for x in batch]).to(self.device)
+        a = torch.LongTensor([x[1] for x in batch]).to(self.device)
+        old_p = torch.FloatTensor([x[2] for x in batch]).to(self.device)
+        r = torch.FloatTensor([x[3] for x in batch]).to(self.device)
+        s_next = torch.FloatTensor([x[4] for x in batch]).to(self.device)
+        done = torch.FloatTensor([x[5] for x in batch]).to(self.device)
         _, values = self.model(s)
         _, next_values = self.model(s_next)
         returns = r + self.gamma * next_values.squeeze(1) * (1 - done)
@@ -97,7 +102,7 @@ class PPOAgent:
 
     def policy(self, state):
         legal = state.legal_actions()
-        obs = torch.FloatTensor(state.observation_tensor()).unsqueeze(0)
+        obs = torch.FloatTensor(state.observation_tensor()).unsqueeze(0).to(self.device)
         logits, _ = self.model(obs)
         logits = logits.detach().cpu().numpy()[0]
         legal_logits = np.array([logits[a] for a in legal])
