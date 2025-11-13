@@ -112,6 +112,23 @@ agent.train(episodes=200000)
 # Evaluate or use agent.policy(state)
 ```
 
+## Model Comparison: Friends & RL Variants
+
+To run the full model comparison (including Tabular Q, DQN, Dueling DQN, PPO, and Distributional DQN) across different numbers of friends and hyperparameter settings, use:
+
+```
+pip install numpy torch scipy matplotlib
+python src/analysis_models_friends.py --train_episodes 20000 --test_episodes 5000 --friends_min 0 --friends_max 4
+```
+
+This will:
+- Train and test all supported agents for 0–4 friends
+- Compare model performance and run statistical tests
+- Save graphs of average and std EV vs number of friends
+- Print statistical significance between models
+
+You can adjust training/testing episodes and friends range with command-line arguments.
+
 ## Project Structure
 
 - `src/` - Core modules, RL agents, and analysis scripts
