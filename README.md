@@ -1,212 +1,202 @@
-# CS7643-4644-Project
-Learning Optimal Strategies in Stud Poker Variants using Deep Reinforcement Learning
+# Mississippi Stud RL Toolkit
 
-## Overview
-
-This project implements a Deep Reinforcement Learning (DRL) model for learning optimal strategies in Stud Poker variants. The implementation is built from scratch using **PyTorch** for the deep learning components and **OpenSpiel** for the game environment API.
+This repository provides tools and simulation environments for Reinforcement Learning (RL) research on the Mississippi Stud poker game.
 
 ## Features
 
-- **Custom DQN Implementation**: Deep Q-Network agent implemented from scratch in PyTorch
-- **OpenSpiel Integration**: Uses OpenSpiel API for poker game environments
-- **Experience Replay**: Standard and prioritized experience replay buffers
-- **Flexible Architecture**: Configurable neural network architectures
-- **Training & Evaluation**: Complete training and evaluation pipelines
-- **TensorBoard Logging**: Real-time training visualization
+- Fast simulation of Mississippi Stud hands
+- Optimal policy evaluation (Kisenwether strategy)
+- Tabular Q-learning agent
+- Improved Tabular Q-learning agent (tq2)
+- Deep Q-Network (DQN) agent
+- Dueling DQN agent
+- PPO agent
+- RL environment wrappers
+- Hand evaluation utilities
+- Example scripts and tests
+- Analysis script to compare all models
+
+## Mississippi Stud Game Flow
+
+- Each round, the player is dealt two hole cards and three community cards (face down).
+- Bets are placed in up to three rounds (3rd, 4th, 5th street), with information revealed progressively:
+  - After the first bet, one community card is revealed.
+  - After the second bet, another community card is revealed.
+  - After the third bet, the final card is revealed and the hand is settled.
+- Legal actions at each street: FOLD, BET 1x, BET 2x, BET 3x.
+- Rewards and payouts follow official Mississippi Stud rules.
+
+## RL Environment Details
+
+- The environment enforces progressive information revelation: only the correct number of community cards is visible at each round.
+- Observations include only the player's hole cards and revealed community cards, matching the real game.
+- All agents interact with the environment using legal actions and receive rewards according to the rules.
+- Shuffling is robust: each hand is unique, and random seeds are managed to avoid repeats.
+
+## Inner Workings & Progressive Information Revelation
+
+The Mississippi Stud RL environment is designed to closely follow the rules and flow of the actual game:
+
+- **Shuffling & Dealing:** Each round, the deck is shuffled to ensure unique hands. Five cards are dealt: two to the player (face up), and three community cards (initially hidden).
+- **Progressive Information Revelation:**
+  - **First Betting Round:** The player sees only their two cards and bets on the 3rd street.
+  - **Second Betting Round:** The first community card is revealed. The player can bet on the 4th street.
+  - **Third Betting Round:** The second community card is revealed. The player can bet on the 5th street.
+  - **Final Reveal:** The last community card is revealed, and the hand is evaluated for payout.
+- **Agent Observations:** At each betting round, agents receive only the information available at that stage (player cards + revealed community cards). This enforces realistic decision-making and prevents information leakage.
+- **Environment Logic:** The environment tracks bets, payouts, and state transitions, ensuring agents interact with the game as in a real casino setting.
+
+## Getting Started
+
+### 1. Environment Setup
+
+This project uses [uv](https://github.com/astral-sh/uv) for fast Python environment management and package installation.
+
+#### Install uv
+
+```
+pip install uv
+```
+
+#### Create and activate environment
+
+```
+uv venv .venv
+uv pip install -r requirements.txt
+```
+
+### 2. Run Simulations & RL Agents
+
+- Run Kisenwether strategy, tabular Q, improved tabular Q (tq2), DQN, dueling DQN, and PPO agents from `src/`
+- Example: Run analysis comparing all models:
+
+```
+python src/analysis_compare_models.py
+```
+
+### 3. Run Tests
+
+```
+pytest
+```
+
+### Pytest for tq2
+
+To run only the tq2 agent test:
+
+```
+pytest tests/test_tq2_agent.py
+```
+
+This will check that the improved agent works with the friends feature and learns a nontrivial Q-table.
+
+## Improved Tabular Q-Learning (tq2)
+
+A new agent, `TabularQAgentV2` (tq2), is provided in `src/tq2.py` with:
+- Compact state abstraction for better generalization
+- Optimistic Q-value initialization to encourage exploration
+- Stronger reward shaping for reaching later rounds
+- Slower epsilon decay and higher initial exploration
+
+### Running the tq2 Agent
+
+To run the improved agent in your own script:
+
+```
+from msstud_spiel_shim import MsStudSpielGame
+from tq2 import TabularQAgentV2
+
+game = MsStudSpielGame(ante=1, seed=42)
+agent = TabularQAgentV2(game)
+agent.train(episodes=200000)
+# Evaluate or use agent.policy(state)
+```
+
+## Model Comparison: Friends & RL Variants
+
+To run the full model comparison (including Tabular Q, DQN, Dueling DQN, PPO, and Distributional DQN) across different numbers of friends and hyperparameter settings, use:
+
+```
+pip install numpy torch scipy matplotlib
+python src/analysis_models_friends.py --train_episodes 20000 --test_episodes 5000 --friends_min 0 --friends_max 4
+```
+
+This will:
+- Train and test all supported agents for 0–4 friends
+- Compare model performance and run statistical tests
+- Save graphs of average and std EV vs number of friends
+- Print statistical significance between models
+
+You can adjust training/testing episodes and friends range with command-line arguments.
 
 ## Project Structure
 
-```
-CS7643-4644-Project/
-├── src/
-│   ├── agents/
-│   │   ├── __init__.py
-│   │   └── dqn_agent.py          # DQN agent implementation
-│   ├── networks/
-│   │   ├── __init__.py
-│   │   └── networks.py           # Neural network architectures
-│   ├── environment/
-│   │   ├── __init__.py
-│   │   └── poker_env.py          # OpenSpiel environment wrapper
-│   └── utils/
-│       ├── __init__.py
-│       └── replay_buffer.py      # Experience replay buffers
-├── config/
-│   └── dqn_config.yaml           # Training configuration
-├── train.py                       # Training script
-├── evaluate.py                    # Evaluation script
-├── requirements.txt               # Python dependencies
-├── setup.py                       # Package setup
-├── .gitignore                     # Git ignore rules
-└── README.md                      # This file
-```
+- `src/` - Core modules, RL agents, and analysis scripts
+- `tests/` - Unit tests for all agents and logic
+- `requirements.txt` - Python dependencies
+- `README.md` - Project documentation
 
-## Installation
+## Analysis & Metrics
 
-### Prerequisites
+The analysis script compares:
 
-- Python 3.8 or higher
-- pip package manager
+- House edge, average bet, element of risk
+- Training time and sample efficiency
+- Unique hands dealt (shuffling check)
+- Final performance of each agent
 
-### Setup
+**Recommended:** For robust results, increase the number of simulation trials in `analysis_compare_models.py` (e.g., 10,000+ rounds per agent). This reduces variance and provides more reliable metrics.
 
-1. Clone the repository:
-```bash
-git clone https://github.com/WaterQualityInspector/CS7643-4644-Project.git
-cd CS7643-4644-Project
-```
+**Note:** All agents and strategies are evaluated under progressive information revelation, matching the rules of Mississippi Stud.
 
-2. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+## Model Improvement Suggestions
 
-3. Install the package in development mode:
-```bash
-pip install -e .
-```
+**Tabular Q-Learning**
 
-## Usage
+- Increase exploration rate (epsilon) and decay more slowly for better policy discovery.
+- Use more training episodes to allow convergence.
+- Refine state representation to include more features (e.g., card ranks, suit patterns).
+- Try reward shaping to guide learning toward better strategies.
 
-### Training
+**DQN**
 
-Train a DQN agent on Kuhn Poker:
+- Tune network architecture (layers, units, regularization).
+- Adjust reward scaling and normalization.
+- Use prioritized experience replay for better sample efficiency.
+- Experiment with different learning rates and batch sizes.
+- Add action masking to prevent illegal bets.
 
-```bash
-python train.py --game kuhn_poker --num_episodes 10000 --log_interval 100
-```
+**Dueling DQN**
 
-Train with custom hyperparameters:
+- Further tune dueling architecture (value/advantage streams).
+- Increase training rounds and replay buffer size.
+- Use double DQN to reduce overestimation bias.
+- Refine state encoding for more granular information.
 
-```bash
-python train.py \
-  --game kuhn_poker \
-  --num_episodes 20000 \
-  --lr 0.0001 \
-  --gamma 0.99 \
-  --epsilon_start 1.0 \
-  --epsilon_end 0.01 \
-  --epsilon_decay 0.995 \
-  --batch_size 64 \
-  --buffer_size 10000 \
-  --hidden_dims 256 256 \
-  --use_cuda
-```
+**PPO**
 
-### Evaluation
+- Increase training epochs and batch size.
+- Tune clipping parameter and entropy bonus for stable learning.
+- Normalize observations and rewards.
+- Use a larger or deeper policy network.
+- Experiment with different learning rates and GAE lambda.
 
-Evaluate a trained agent:
+**General RL Tips**
 
-```bash
-python evaluate.py \
-  --checkpoint checkpoints/agent_final.pth \
-  --game kuhn_poker \
-  --num_episodes 100
-```
+- Increase training rounds for all models.
+- Use more granular state features (e.g., encode card combinations, betting history).
+- Visualize learning curves to diagnose instability or overfitting.
+- Compare with the optimal (Kisenwether) strategy for benchmarking.
+- Implement early stopping or model selection based on validation EV.
 
-Render episodes during evaluation:
+These improvements can help reduce house edge, improve sample efficiency, and yield more realistic betting behavior.
 
-```bash
-python evaluate.py \
-  --checkpoint checkpoints/agent_final.pth \
-  --game kuhn_poker \
-  --num_episodes 10 \
-  --render \
-  --render_episodes 5
-```
+## Best Practices & Recommendations
 
-### Monitoring Training
-
-Monitor training progress with TensorBoard:
-
-```bash
-tensorboard --logdir logs
-```
-
-## Algorithm Details
-
-### Deep Q-Network (DQN)
-
-The implementation includes:
-
-- **Q-Network**: Deep neural network that approximates the Q-function
-- **Target Network**: Separate network for stable training
-- **Experience Replay**: Stores and samples past experiences
-- **Epsilon-Greedy Exploration**: Balances exploration and exploitation
-- **Legal Action Masking**: Ensures only valid poker actions are selected
-
-### Network Architecture
-
-Default architecture:
-- Input layer: State dimension (varies by game)
-- Hidden layers: 2 × 256 units with ReLU activation
-- Output layer: Action dimension (varies by game)
-
-### Training Process
-
-1. Initialize Q-network and target network
-2. For each episode:
-   - Reset environment
-   - For each step:
-     - Select action using epsilon-greedy policy
-     - Execute action and observe reward
-     - Store transition in replay buffer
-     - Sample batch from replay buffer
-     - Compute TD target using target network
-     - Update Q-network via gradient descent
-     - Periodically update target network
-3. Save trained model
-
-## Supported Games
-
-The implementation supports various poker variants available in OpenSpiel:
-
-- **kuhn_poker**: Simple 3-card poker variant
-- **leduc_poker**: Medium complexity poker variant
-- Other OpenSpiel poker games
-
-To use a different game:
-```bash
-python train.py --game leduc_poker
-```
-
-## Configuration
-
-Training parameters can be configured via:
-
-1. Command-line arguments (see `python train.py --help`)
-2. YAML configuration file (`config/dqn_config.yaml`)
-
-## Results
-
-Training results and checkpoints are saved in:
-- `logs/`: TensorBoard logs
-- `checkpoints/`: Model checkpoints
-
-## Educational Purpose
-
-This project is designed for educational purposes to demonstrate:
-
-- Deep Reinforcement Learning implementation from scratch
-- Integration with game environments (OpenSpiel)
-- PyTorch neural network design
-- RL training and evaluation pipelines
-- Best practices in ML project organization
-
-## Contributing
-
-This is an educational project. Contributions and improvements are welcome!
+- For reliable results, use a large number of trials (e.g., 5000+ hands per agent) in analysis scripts.
+- The environment and agents are designed to match the real casino game, with progressive information and legal actions enforced.
+- All RL agents are compatible with the OpenSpiel-style API for easy experimentation and extension.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## References
-
-- [OpenSpiel: A Framework for Reinforcement Learning in Games](https://github.com/google-deepmind/open_spiel)
-- [Playing Atari with Deep Reinforcement Learning](https://arxiv.org/abs/1312.5602)
-- [Human-level control through deep reinforcement learning](https://www.nature.com/articles/nature14236)
-
-## Contact
-
-For questions or issues, please open an issue on GitHub.
+MIT

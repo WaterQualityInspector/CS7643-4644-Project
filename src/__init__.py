@@ -1,4 +1,1 @@
-"""
-Stud Poker Reinforcement Learning Package
-"""
-__version__ = "0.1.0"
+# Empty __init__.py file to make src a Python package
