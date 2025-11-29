@@ -1,13 +1,10 @@
-# dqn_agent.py
-"""
-Deep Q-Learning agent for Mississippi Stud using PyTorch.
-"""
 import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
 from msstud_spiel_shim import MsStudSpielGame
 from gpu_utils import get_device, move_to_device
+
 
 class DQN(nn.Module):
     def __init__(self, input_dim, output_dim):
@@ -17,13 +14,27 @@ class DQN(nn.Module):
             nn.ReLU(),
             nn.Linear(128, 128),
             nn.ReLU(),
-            nn.Linear(128, output_dim)
+            nn.Linear(128, output_dim),
         )
+
     def forward(self, x):
         return self.net(x)
 
+
 class DQNAgent:
-    def __init__(self, game, lr=5e-4, gamma=1.0, epsilon=0.2, batch_size=128, memory_size=20000, min_epsilon=0.01, epsilon_decay=0.9995, target_update=50, double_dqn=True):
+    def __init__(
+        self,
+        game,
+        lr=5e-4,
+        gamma=1.0,
+        epsilon=0.2,
+        batch_size=128,
+        memory_size=20000,
+        min_epsilon=0.01,
+        epsilon_decay=0.9995,
+        target_update=50,
+        double_dqn=True,
+    ):
         self.game = game
         self.gamma = gamma
         self.epsilon = epsilon
@@ -34,30 +45,33 @@ class DQNAgent:
         self.memory_size = memory_size
         self.double_dqn = double_dqn
         self.target_update = target_update
-        
+
         # GPU setup
         self.device = get_device()
-        
+
         obs_len = len(game.new_initial_state().observation_tensor())
         self.model = DQN(obs_len, 4).to(self.device)
         self.target_model = DQN(obs_len, 4).to(self.device)
         self.optimizer = optim.Adam(self.model.parameters(), lr=lr)
         self.loss_fn = nn.MSELoss()
         self.update_target()
-    # (Add logic for double_dqn and prioritized_replay in future if desired)
 
     def update_target(self):
         self.target_model.load_state_dict(self.model.state_dict())
 
     def select_action(self, state):
         legal = state.legal_actions()
-        obs = torch.FloatTensor(state.observation_tensor()).unsqueeze(0).to(self.device)
+        obs = (
+            torch.FloatTensor(state.observation_tensor())
+            .unsqueeze(0)
+            .to(self.device)
+        )
         if np.random.rand() < self.epsilon:
             return np.random.choice(legal)
         with torch.no_grad():
             qvals = self.model(obs).cpu().numpy()[0]
         legal_qvals = [qvals[a] for a in legal]
-        return legal[np.argmax(legal_qvals)]
+        return legal[int(np.argmax(legal_qvals))]
 
     def store(self, s, a, r, s_next, done):
         if len(self.memory) >= self.memory_size:
@@ -65,7 +79,7 @@ class DQNAgent:
         self.memory.append((s, a, r, s_next, done))
 
     def sample(self):
-        idx = np.random.choice(len(self.memory), self.batch_size)
+        idx = np.random.choice(len(self.memory), self.batch_size, replace=False)
         batch = [self.memory[i] for i in idx]
         s = torch.FloatTensor([x[0] for x in batch]).to(self.device)
         a = torch.LongTensor([x[1] for x in batch]).to(self.device)
@@ -82,7 +96,7 @@ class DQNAgent:
             while not state.is_terminal():
                 obs = state.observation_tensor()
                 action = self.select_action(state)
-                prev_state = state.child(action)
+                # prev_state = state.child(action)  # unused, removed
                 state.apply_action(action)
                 reward = state.returns()[0] if state.is_terminal() else 0.0
                 next_obs = state.observation_tensor()
@@ -96,18 +110,27 @@ class DQNAgent:
             self.epsilon = max(self.min_epsilon, self.epsilon * self.epsilon_decay)
 
     def learn(self):
+        if len(self.memory) < self.batch_size:
+            return
         s, a, r, s_next, done = self.sample()
+        # Current Q-values for chosen actions
         qvals = self.model(s)
         qval = qvals.gather(1, a.unsqueeze(1)).squeeze(1)
+
         with torch.no_grad():
             if self.double_dqn:
+                # Double DQN: action selection from online net, evaluation by target net
                 next_actions = self.model(s_next).argmax(1)
                 next_qvals = self.target_model(s_next)
-                max_next_qval = next_qvals.gather(1, next_actions.unsqueeze(1)).squeeze(1)
+                max_next_qval = next_qvals.gather(
+                    1, next_actions.unsqueeze(1)
+                ).squeeze(1)
             else:
+                # Vanilla DQN: max over target Q-values
                 next_qvals = self.target_model(s_next)
                 max_next_qval = next_qvals.max(1)[0]
             target = r + self.gamma * max_next_qval * (1 - done)
+
         loss = self.loss_fn(qval, target)
         self.optimizer.zero_grad()
         loss.backward()
@@ -115,11 +138,16 @@ class DQNAgent:
 
     def policy(self, state):
         legal = state.legal_actions()
-        obs = torch.FloatTensor(state.observation_tensor()).unsqueeze(0).to(self.device)
+        obs = (
+            torch.FloatTensor(state.observation_tensor())
+            .unsqueeze(0)
+            .to(self.device)
+        )
         with torch.no_grad():
             qvals = self.model(obs).cpu().numpy()[0]
         legal_qvals = [qvals[a] for a in legal]
-        return legal[np.argmax(legal_qvals)]
+        return legal[int(np.argmax(legal_qvals))]
+
 
 if __name__ == "__main__":
     game = MsStudSpielGame(ante=1, seed=42)

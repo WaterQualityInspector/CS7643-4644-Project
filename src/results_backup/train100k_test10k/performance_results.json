@@ -1,0 +1,212 @@
+{
+    "0": {
+        "Tabular Q-Learning": {
+            "avg_ev": -2.9244,
+            "std_ev": 7.174042419724042
+        },
+        "Tabular Q-Learning V2": {
+            "avg_ev": -1.0,
+            "std_ev": 0.0
+        },
+        "DQN (default)": {
+            "avg_ev": -0.9444,
+            "std_ev": 5.323092018742491
+        },
+        "DQN (low lr)": {
+            "avg_ev": -0.5389,
+            "std_ev": 5.479113686537267
+        },
+        "DQN (high batch)": {
+            "avg_ev": -1.1485,
+            "std_ev": 5.9973200473211365
+        },
+        "Dueling DQN (default)": {
+            "avg_ev": -1.0071,
+            "std_ev": 5.547995096428979
+        },
+        "Dueling DQN (low lr)": {
+            "avg_ev": -0.5621,
+            "std_ev": 5.7577029786191645
+        },
+        "Dueling DQN (high batch)": {
+            "avg_ev": -0.9952,
+            "std_ev": 6.1111682156523885
+        },
+        "PPO": {
+            "avg_ev": -0.9257,
+            "std_ev": 5.957229180583873
+        },
+        "Distributional DQN": {
+            "avg_ev": -0.9212,
+            "std_ev": 3.010280810821476
+        }
+    },
+    "1": {
+        "Tabular Q-Learning": {
+            "avg_ev": -2.4094,
+            "std_ev": 5.436560644378024
+        },
+        "Tabular Q-Learning V2": {
+            "avg_ev": -1.0,
+            "std_ev": 0.0
+        },
+        "DQN (default)": {
+            "avg_ev": -1.2886,
+            "std_ev": 4.885315756427623
+        },
+        "DQN (low lr)": {
+            "avg_ev": -0.9521,
+            "std_ev": 2.2687894547533496
+        },
+        "DQN (high batch)": {
+            "avg_ev": -1.3809,
+            "std_ev": 2.9751328020779173
+        },
+        "Dueling DQN (default)": {
+            "avg_ev": -1.4404,
+            "std_ev": 5.027151065961713
+        },
+        "Dueling DQN (low lr)": {
+            "avg_ev": -1.0942,
+            "std_ev": 3.310698772162759
+        },
+        "Dueling DQN (high batch)": {
+            "avg_ev": -1.4344,
+            "std_ev": 5.81380225325905
+        },
+        "PPO": {
+            "avg_ev": -1.2064,
+            "std_ev": 5.1385405554495724
+        },
+        "Distributional DQN": {
+            "avg_ev": -1.003,
+            "std_ev": 0.2576645105558777
+        }
+    },
+    "2": {
+        "Tabular Q-Learning": {
+            "avg_ev": -2.2973,
+            "std_ev": 6.210226462054343
+        },
+        "Tabular Q-Learning V2": {
+            "avg_ev": -1.0,
+            "std_ev": 0.0
+        },
+        "DQN (default)": {
+            "avg_ev": -1.1442,
+            "std_ev": 2.525313121179233
+        },
+        "DQN (low lr)": {
+            "avg_ev": -1.0273,
+            "std_ev": 2.2241750628041848
+        },
+        "DQN (high batch)": {
+            "avg_ev": -1.338,
+            "std_ev": 2.4995911665710455
+        },
+        "Dueling DQN (default)": {
+            "avg_ev": -1.381,
+            "std_ev": 4.329207664226793
+        },
+        "Dueling DQN (low lr)": {
+            "avg_ev": -1.0394,
+            "std_ev": 1.512695488193179
+        },
+        "Dueling DQN (high batch)": {
+            "avg_ev": -1.3658,
+            "std_ev": 5.51940126825365
+        },
+        "PPO": {
+            "avg_ev": -1.1636,
+            "std_ev": 5.143737458307918
+        },
+        "Distributional DQN": {
+            "avg_ev": -1.0433,
+            "std_ev": 0.7539397257075662
+        }
+    },
+    "3": {
+        "Tabular Q-Learning": {
+            "avg_ev": -2.3604,
+            "std_ev": 6.362948360626542
+        },
+        "Tabular Q-Learning V2": {
+            "avg_ev": -1.0,
+            "std_ev": 0.0
+        },
+        "DQN (default)": {
+            "avg_ev": -1.2565,
+            "std_ev": 3.6509324493887862
+        },
+        "DQN (low lr)": {
+            "avg_ev": -1.0308,
+            "std_ev": 1.729985942139415
+        },
+        "DQN (high batch)": {
+            "avg_ev": -1.4125,
+            "std_ev": 3.268538473079367
+        },
+        "Dueling DQN (default)": {
+            "avg_ev": -1.3562,
+            "std_ev": 6.853854503854018
+        },
+        "Dueling DQN (low lr)": {
+            "avg_ev": -1.0818,
+            "std_ev": 2.710887079905764
+        },
+        "Dueling DQN (high batch)": {
+            "avg_ev": -1.4477,
+            "std_ev": 5.74294913002022
+        },
+        "PPO": {
+            "avg_ev": -1.0335,
+            "std_ev": 7.824434660088867
+        },
+        "Distributional DQN": {
+            "avg_ev": -1.0108,
+            "std_ev": 0.24307068930662945
+        }
+    },
+    "4": {
+        "Tabular Q-Learning": {
+            "avg_ev": -2.3097,
+            "std_ev": 6.671085811919975
+        },
+        "Tabular Q-Learning V2": {
+            "avg_ev": -1.0,
+            "std_ev": 0.0
+        },
+        "DQN (default)": {
+            "avg_ev": -1.3121,
+            "std_ev": 2.774579894326347
+        },
+        "DQN (low lr)": {
+            "avg_ev": -1.0355,
+            "std_ev": 1.6994822005540393
+        },
+        "DQN (high batch)": {
+            "avg_ev": -1.2571,
+            "std_ev": 2.450877310270753
+        },
+        "Dueling DQN (default)": {
+            "avg_ev": -1.0945,
+            "std_ev": 2.739045408531958
+        },
+        "Dueling DQN (low lr)": {
+            "avg_ev": -1.0479,
+            "std_ev": 1.6690732728073983
+        },
+        "Dueling DQN (high batch)": {
+            "avg_ev": -1.336,
+            "std_ev": 5.1153987136879175
+        },
+        "PPO": {
+            "avg_ev": -1.0825,
+            "std_ev": 5.388013896604202
+        },
+        "Distributional DQN": {
+            "avg_ev": -1.0091,
+            "std_ev": 0.15626000767950832
+        }
+    }
+}

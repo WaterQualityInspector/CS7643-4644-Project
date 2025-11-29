@@ -94,7 +94,7 @@ class TabularQAgent:
                     sample_returns.append(test_state.returns()[0])
                 avg_return = sum(sample_returns) / len(sample_returns)
                 
-                print(f"Episode {ep}, epsilon: {self.epsilon:.4f}, Q-table size: {len(self.Q)}, Avg return: {avg_return:.3f}")
+                #print(f"Episode {ep}, epsilon: {self.epsilon:.4f}, Q-table size: {len(self.Q)}, Avg return: {avg_return:.3f}")
     
     def policy(self, state):
         legal = state.legal_actions()

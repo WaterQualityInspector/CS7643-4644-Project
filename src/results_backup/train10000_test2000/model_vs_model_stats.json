@@ -1,0 +1,1362 @@
+{
+    "0": {
+        "Tabular Q-Learning vs Tabular Q-Learning V2": {
+            "p_value": 4.7920400288817215e-21,
+            "mean_m1": -2.7745,
+            "mean_m2": -1.0,
+            "diff": 1.7745000000000002
+        },
+        "Tabular Q-Learning vs DQN (default)": {
+            "p_value": 0.0011189167581207866,
+            "mean_m1": -2.7745,
+            "mean_m2": -1.8425,
+            "diff": 0.9320000000000002
+        },
+        "Tabular Q-Learning vs DQN (low lr)": {
+            "p_value": 9.07216287553089e-13,
+            "mean_m1": -2.7745,
+            "mean_m2": -0.9185,
+            "diff": 1.8560000000000003
+        },
+        "Tabular Q-Learning vs DQN (high batch)": {
+            "p_value": 4.232128397254572e-14,
+            "mean_m1": -2.7745,
+            "mean_m2": -0.8135,
+            "diff": 1.9610000000000003
+        },
+        "Tabular Q-Learning vs Dueling DQN (default)": {
+            "p_value": 7.465799161980404e-12,
+            "mean_m1": -2.7745,
+            "mean_m2": -0.9335,
+            "diff": 1.8410000000000002
+        },
+        "Tabular Q-Learning vs Dueling DQN (low lr)": {
+            "p_value": 3.846447118035771e-15,
+            "mean_m1": -2.7745,
+            "mean_m2": -1.04,
+            "diff": 1.7345000000000002
+        },
+        "Tabular Q-Learning vs Dueling DQN (high batch)": {
+            "p_value": 1.907403514774865e-06,
+            "mean_m1": -2.7745,
+            "mean_m2": -1.5935,
+            "diff": 1.1810000000000003
+        },
+        "Tabular Q-Learning vs PPO": {
+            "p_value": 1.197402712325509e-10,
+            "mean_m1": -2.7745,
+            "mean_m2": -1.207,
+            "diff": 1.5675000000000001
+        },
+        "Tabular Q-Learning vs Distributional DQN": {
+            "p_value": 5.959187599026568e-21,
+            "mean_m1": -2.7745,
+            "mean_m2": -1.0035,
+            "diff": 1.7710000000000001
+        },
+        "Tabular Q-Learning V2 vs DQN (default)": {
+            "p_value": 0.00010391829544594861,
+            "mean_m1": -1.0,
+            "mean_m2": -1.8425,
+            "diff": -0.8425
+        },
+        "Tabular Q-Learning V2 vs DQN (low lr)": {
+            "p_value": 0.6503324393991758,
+            "mean_m1": -1.0,
+            "mean_m2": -0.9185,
+            "diff": 0.08150000000000002
+        },
+        "Tabular Q-Learning V2 vs DQN (high batch)": {
+            "p_value": 0.29852046396734416,
+            "mean_m1": -1.0,
+            "mean_m2": -0.8135,
+            "diff": 0.1865
+        },
+        "Tabular Q-Learning V2 vs Dueling DQN (default)": {
+            "p_value": 0.7299039714162804,
+            "mean_m1": -1.0,
+            "mean_m2": -0.9335,
+            "diff": 0.0665
+        },
+        "Tabular Q-Learning V2 vs Dueling DQN (low lr)": {
+            "p_value": 0.7306969804772325,
+            "mean_m1": -1.0,
+            "mean_m2": -1.04,
+            "diff": -0.040000000000000036
+        },
+        "Tabular Q-Learning V2 vs Dueling DQN (high batch)": {
+            "p_value": 0.0002771921628445272,
+            "mean_m1": -1.0,
+            "mean_m2": -1.5935,
+            "diff": -0.5934999999999999
+        },
+        "Tabular Q-Learning V2 vs PPO": {
+            "p_value": 0.18330479917128778,
+            "mean_m1": -1.0,
+            "mean_m2": -1.207,
+            "diff": -0.20700000000000007
+        },
+        "Tabular Q-Learning V2 vs Distributional DQN": {
+            "p_value": 0.5690430781468938,
+            "mean_m1": -1.0,
+            "mean_m2": -1.0035,
+            "diff": -0.0035000000000000586
+        },
+        "DQN (default) vs DQN (low lr)": {
+            "p_value": 0.0010386033596373676,
+            "mean_m1": -1.8425,
+            "mean_m2": -0.9185,
+            "diff": 0.924
+        },
+        "DQN (default) vs DQN (high batch)": {
+            "p_value": 0.00025676875462601184,
+            "mean_m1": -1.8425,
+            "mean_m2": -0.8135,
+            "diff": 1.029
+        },
+        "DQN (default) vs Dueling DQN (default)": {
+            "p_value": 0.0017253236354961132,
+            "mean_m1": -1.8425,
+            "mean_m2": -0.9335,
+            "diff": 0.909
+        },
+        "DQN (default) vs Dueling DQN (low lr)": {
+            "p_value": 0.0011087155197920325,
+            "mean_m1": -1.8425,
+            "mean_m2": -1.04,
+            "diff": 0.8025
+        },
+        "DQN (default) vs Dueling DQN (high batch)": {
+            "p_value": 0.35838630425517337,
+            "mean_m1": -1.8425,
+            "mean_m2": -1.5935,
+            "diff": 0.2490000000000001
+        },
+        "DQN (default) vs PPO": {
+            "p_value": 0.0172190171341819,
+            "mean_m1": -1.8425,
+            "mean_m2": -1.207,
+            "diff": 0.6355
+        },
+        "DQN (default) vs Distributional DQN": {
+            "p_value": 0.00011170227107563096,
+            "mean_m1": -1.8425,
+            "mean_m2": -1.0035,
+            "diff": 0.839
+        },
+        "DQN (low lr) vs DQN (high batch)": {
+            "p_value": 0.6792640290542316,
+            "mean_m1": -0.9185,
+            "mean_m2": -0.8135,
+            "diff": 0.10499999999999998
+        },
+        "DQN (low lr) vs Dueling DQN (default)": {
+            "p_value": 0.9545979956013673,
+            "mean_m1": -0.9185,
+            "mean_m2": -0.9335,
+            "diff": -0.015000000000000013
+        },
+        "DQN (low lr) vs Dueling DQN (low lr)": {
+            "p_value": 0.5703257548213645,
+            "mean_m1": -0.9185,
+            "mean_m2": -1.04,
+            "diff": -0.12150000000000005
+        },
+        "DQN (low lr) vs Dueling DQN (high batch)": {
+            "p_value": 0.005427528480799945,
+            "mean_m1": -0.9185,
+            "mean_m2": -1.5935,
+            "diff": -0.6749999999999999
+        },
+        "DQN (low lr) vs PPO": {
+            "p_value": 0.22491943861224284,
+            "mean_m1": -0.9185,
+            "mean_m2": -1.207,
+            "diff": -0.2885000000000001
+        },
+        "DQN (low lr) vs Distributional DQN": {
+            "p_value": 0.6365767726290255,
+            "mean_m1": -0.9185,
+            "mean_m2": -1.0035,
+            "diff": -0.08500000000000008
+        },
+        "DQN (high batch) vs Dueling DQN (default)": {
+            "p_value": 0.6484206642968824,
+            "mean_m1": -0.8135,
+            "mean_m2": -0.9335,
+            "diff": -0.12
+        },
+        "DQN (high batch) vs Dueling DQN (low lr)": {
+            "p_value": 0.2892619465616207,
+            "mean_m1": -0.8135,
+            "mean_m2": -1.04,
+            "diff": -0.22650000000000003
+        },
+        "DQN (high batch) vs Dueling DQN (high batch)": {
+            "p_value": 0.0012972068560743696,
+            "mean_m1": -0.8135,
+            "mean_m2": -1.5935,
+            "diff": -0.7799999999999999
+        },
+        "DQN (high batch) vs PPO": {
+            "p_value": 0.09746022035000115,
+            "mean_m1": -0.8135,
+            "mean_m2": -1.207,
+            "diff": -0.39350000000000007
+        },
+        "DQN (high batch) vs Distributional DQN": {
+            "p_value": 0.2898294599781587,
+            "mean_m1": -0.8135,
+            "mean_m2": -1.0035,
+            "diff": -0.19000000000000006
+        },
+        "Dueling DQN (default) vs Dueling DQN (low lr)": {
+            "p_value": 0.6358918677184315,
+            "mean_m1": -0.9335,
+            "mean_m2": -1.04,
+            "diff": -0.10650000000000004
+        },
+        "Dueling DQN (default) vs Dueling DQN (high batch)": {
+            "p_value": 0.008925633569537317,
+            "mean_m1": -0.9335,
+            "mean_m2": -1.5935,
+            "diff": -0.6599999999999999
+        },
+        "Dueling DQN (default) vs PPO": {
+            "p_value": 0.26926966975562805,
+            "mean_m1": -0.9335,
+            "mean_m2": -1.207,
+            "diff": -0.2735000000000001
+        },
+        "Dueling DQN (default) vs Distributional DQN": {
+            "p_value": 0.7164262425636788,
+            "mean_m1": -0.9335,
+            "mean_m2": -1.0035,
+            "diff": -0.07000000000000006
+        },
+        "Dueling DQN (low lr) vs Dueling DQN (high batch)": {
+            "p_value": 0.0057102987250181704,
+            "mean_m1": -1.04,
+            "mean_m2": -1.5935,
+            "diff": -0.5534999999999999
+        },
+        "Dueling DQN (low lr) vs PPO": {
+            "p_value": 0.3896963513986401,
+            "mean_m1": -1.04,
+            "mean_m2": -1.207,
+            "diff": -0.16700000000000004
+        },
+        "Dueling DQN (low lr) vs Distributional DQN": {
+            "p_value": 0.753791527210719,
+            "mean_m1": -1.04,
+            "mean_m2": -1.0035,
+            "diff": 0.03649999999999998
+        },
+        "Dueling DQN (high batch) vs PPO": {
+            "p_value": 0.08625863825539436,
+            "mean_m1": -1.5935,
+            "mean_m2": -1.207,
+            "diff": 0.38649999999999984
+        },
+        "Dueling DQN (high batch) vs Distributional DQN": {
+            "p_value": 0.0003040549172096007,
+            "mean_m1": -1.5935,
+            "mean_m2": -1.0035,
+            "diff": 0.5899999999999999
+        },
+        "PPO vs Distributional DQN": {
+            "p_value": 0.19116494416470411,
+            "mean_m1": -1.207,
+            "mean_m2": -1.0035,
+            "diff": 0.20350000000000001
+        }
+    },
+    "1": {
+        "Tabular Q-Learning vs Tabular Q-Learning V2": {
+            "p_value": 7.352556622825992e-37,
+            "mean_m1": -2.613,
+            "mean_m2": -1.0,
+            "diff": 1.613
+        },
+        "Tabular Q-Learning vs DQN (default)": {
+            "p_value": 4.0560632093592164e-12,
+            "mean_m1": -2.613,
+            "mean_m2": -1.3935,
+            "diff": 1.2195
+        },
+        "Tabular Q-Learning vs DQN (low lr)": {
+            "p_value": 5.467367239850414e-21,
+            "mean_m1": -2.613,
+            "mean_m2": -1.1335,
+            "diff": 1.4795
+        },
+        "Tabular Q-Learning vs DQN (high batch)": {
+            "p_value": 5.059070745597201e-11,
+            "mean_m1": -2.613,
+            "mean_m2": -1.391,
+            "diff": 1.222
+        },
+        "Tabular Q-Learning vs Dueling DQN (default)": {
+            "p_value": 2.5445308747348657e-22,
+            "mean_m1": -2.613,
+            "mean_m2": -1.1795,
+            "diff": 1.4335
+        },
+        "Tabular Q-Learning vs Dueling DQN (low lr)": {
+            "p_value": 2.5306812366914006e-24,
+            "mean_m1": -2.613,
+            "mean_m2": -1.1505,
+            "diff": 1.4625
+        },
+        "Tabular Q-Learning vs Dueling DQN (high batch)": {
+            "p_value": 9.648253610237569e-16,
+            "mean_m1": -2.613,
+            "mean_m2": -1.2885,
+            "diff": 1.3245
+        },
+        "Tabular Q-Learning vs PPO": {
+            "p_value": 2.051457809018815e-16,
+            "mean_m1": -2.613,
+            "mean_m2": -1.268,
+            "diff": 1.345
+        },
+        "Tabular Q-Learning vs Distributional DQN": {
+            "p_value": 8.133736274192365e-37,
+            "mean_m1": -2.613,
+            "mean_m2": -1.001,
+            "diff": 1.612
+        },
+        "Tabular Q-Learning V2 vs DQN (default)": {
+            "p_value": 0.0014375736472618272,
+            "mean_m1": -1.0,
+            "mean_m2": -1.3935,
+            "diff": -0.39349999999999996
+        },
+        "Tabular Q-Learning V2 vs DQN (low lr)": {
+            "p_value": 0.1583549604244258,
+            "mean_m1": -1.0,
+            "mean_m2": -1.1335,
+            "diff": -0.13349999999999995
+        },
+        "Tabular Q-Learning V2 vs DQN (high batch)": {
+            "p_value": 0.004480423819390901,
+            "mean_m1": -1.0,
+            "mean_m2": -1.391,
+            "diff": -0.391
+        },
+        "Tabular Q-Learning V2 vs Dueling DQN (default)": {
+            "p_value": 0.019787382843455187,
+            "mean_m1": -1.0,
+            "mean_m2": -1.1795,
+            "diff": -0.1795
+        },
+        "Tabular Q-Learning V2 vs Dueling DQN (low lr)": {
+            "p_value": 0.029650083588544367,
+            "mean_m1": -1.0,
+            "mean_m2": -1.1505,
+            "diff": -0.15050000000000008
+        },
+        "Tabular Q-Learning V2 vs Dueling DQN (high batch)": {
+            "p_value": 0.007054534492746373,
+            "mean_m1": -1.0,
+            "mean_m2": -1.2885,
+            "diff": -0.2885
+        },
+        "Tabular Q-Learning V2 vs PPO": {
+            "p_value": 0.010739191163106225,
+            "mean_m1": -1.0,
+            "mean_m2": -1.268,
+            "diff": -0.268
+        },
+        "Tabular Q-Learning V2 vs Distributional DQN": {
+            "p_value": 0.31743153860860296,
+            "mean_m1": -1.0,
+            "mean_m2": -1.001,
+            "diff": -0.0009999999999998899
+        },
+        "DQN (default) vs DQN (low lr)": {
+            "p_value": 0.09441178847963547,
+            "mean_m1": -1.3935,
+            "mean_m2": -1.1335,
+            "diff": 0.26
+        },
+        "DQN (default) vs DQN (high batch)": {
+            "p_value": 0.9891966583061979,
+            "mean_m1": -1.3935,
+            "mean_m2": -1.391,
+            "diff": 0.0024999999999999467
+        },
+        "DQN (default) vs Dueling DQN (default)": {
+            "p_value": 0.14102600503315327,
+            "mean_m1": -1.3935,
+            "mean_m2": -1.1795,
+            "diff": 0.21399999999999997
+        },
+        "DQN (default) vs Dueling DQN (low lr)": {
+            "p_value": 0.0857264647770003,
+            "mean_m1": -1.3935,
+            "mean_m2": -1.1505,
+            "diff": 0.24299999999999988
+        },
+        "DQN (default) vs Dueling DQN (high batch)": {
+            "p_value": 0.5200962605444,
+            "mean_m1": -1.3935,
+            "mean_m2": -1.2885,
+            "diff": 0.10499999999999998
+        },
+        "DQN (default) vs PPO": {
+            "p_value": 0.4383423475671978,
+            "mean_m1": -1.3935,
+            "mean_m2": -1.268,
+            "diff": 0.12549999999999994
+        },
+        "DQN (default) vs Distributional DQN": {
+            "p_value": 0.0014787769149183427,
+            "mean_m1": -1.3935,
+            "mean_m2": -1.001,
+            "diff": 0.39250000000000007
+        },
+        "DQN (low lr) vs DQN (high batch)": {
+            "p_value": 0.12280223135030043,
+            "mean_m1": -1.1335,
+            "mean_m2": -1.391,
+            "diff": -0.25750000000000006
+        },
+        "DQN (low lr) vs Dueling DQN (default)": {
+            "p_value": 0.7060582243740565,
+            "mean_m1": -1.1335,
+            "mean_m2": -1.1795,
+            "diff": -0.04600000000000004
+        },
+        "DQN (low lr) vs Dueling DQN (low lr)": {
+            "p_value": 0.8846629679801281,
+            "mean_m1": -1.1335,
+            "mean_m2": -1.1505,
+            "diff": -0.017000000000000126
+        },
+        "DQN (low lr) vs Dueling DQN (high batch)": {
+            "p_value": 0.2777996988177579,
+            "mean_m1": -1.1335,
+            "mean_m2": -1.2885,
+            "diff": -0.15500000000000003
+        },
+        "DQN (low lr) vs PPO": {
+            "p_value": 0.34121492250597985,
+            "mean_m1": -1.1335,
+            "mean_m2": -1.268,
+            "diff": -0.13450000000000006
+        },
+        "DQN (low lr) vs Distributional DQN": {
+            "p_value": 0.1615173541429345,
+            "mean_m1": -1.1335,
+            "mean_m2": -1.001,
+            "diff": 0.13250000000000006
+        },
+        "DQN (high batch) vs Dueling DQN (default)": {
+            "p_value": 0.17941397555400135,
+            "mean_m1": -1.391,
+            "mean_m2": -1.1795,
+            "diff": 0.21150000000000002
+        },
+        "DQN (high batch) vs Dueling DQN (low lr)": {
+            "p_value": 0.11807136662451721,
+            "mean_m1": -1.391,
+            "mean_m2": -1.1505,
+            "diff": 0.24049999999999994
+        },
+        "DQN (high batch) vs Dueling DQN (high batch)": {
+            "p_value": 0.5561610346961166,
+            "mean_m1": -1.391,
+            "mean_m2": -1.2885,
+            "diff": 0.10250000000000004
+        },
+        "DQN (high batch) vs PPO": {
+            "p_value": 0.476911742296661,
+            "mean_m1": -1.391,
+            "mean_m2": -1.268,
+            "diff": 0.123
+        },
+        "DQN (high batch) vs Distributional DQN": {
+            "p_value": 0.0045845073925160525,
+            "mean_m1": -1.391,
+            "mean_m2": -1.001,
+            "diff": 0.3900000000000001
+        },
+        "Dueling DQN (default) vs Dueling DQN (low lr)": {
+            "p_value": 0.7792803603437312,
+            "mean_m1": -1.1795,
+            "mean_m2": -1.1505,
+            "diff": 0.028999999999999915
+        },
+        "Dueling DQN (default) vs Dueling DQN (high batch)": {
+            "p_value": 0.40821409604538283,
+            "mean_m1": -1.1795,
+            "mean_m2": -1.2885,
+            "diff": -0.10899999999999999
+        },
+        "Dueling DQN (default) vs PPO": {
+            "p_value": 0.49655934258726986,
+            "mean_m1": -1.1795,
+            "mean_m2": -1.268,
+            "diff": -0.08850000000000002
+        },
+        "Dueling DQN (default) vs Distributional DQN": {
+            "p_value": 0.02049308190411818,
+            "mean_m1": -1.1795,
+            "mean_m2": -1.001,
+            "diff": 0.1785000000000001
+        },
+        "Dueling DQN (low lr) vs Dueling DQN (high batch)": {
+            "p_value": 0.27870470591985874,
+            "mean_m1": -1.1505,
+            "mean_m2": -1.2885,
+            "diff": -0.1379999999999999
+        },
+        "Dueling DQN (low lr) vs PPO": {
+            "p_value": 0.3499351919598519,
+            "mean_m1": -1.1505,
+            "mean_m2": -1.268,
+            "diff": -0.11749999999999994
+        },
+        "Dueling DQN (low lr) vs Distributional DQN": {
+            "p_value": 0.03076682090672103,
+            "mean_m1": -1.1505,
+            "mean_m2": -1.001,
+            "diff": 0.1495000000000002
+        },
+        "Dueling DQN (high batch) vs PPO": {
+            "p_value": 0.8912000812998485,
+            "mean_m1": -1.2885,
+            "mean_m2": -1.268,
+            "diff": 0.020499999999999963
+        },
+        "Dueling DQN (high batch) vs Distributional DQN": {
+            "p_value": 0.007256881848454011,
+            "mean_m1": -1.2885,
+            "mean_m2": -1.001,
+            "diff": 0.2875000000000001
+        },
+        "PPO vs Distributional DQN": {
+            "p_value": 0.01103923256090359,
+            "mean_m1": -1.268,
+            "mean_m2": -1.001,
+            "diff": 0.2670000000000001
+        }
+    },
+    "2": {
+        "Tabular Q-Learning vs Tabular Q-Learning V2": {
+            "p_value": 2.9951425370714755e-32,
+            "mean_m1": -2.4275,
+            "mean_m2": -1.0,
+            "diff": 1.4275000000000002
+        },
+        "Tabular Q-Learning vs DQN (default)": {
+            "p_value": 1.1047573747092228e-11,
+            "mean_m1": -2.4275,
+            "mean_m2": -1.292,
+            "diff": 1.1355000000000002
+        },
+        "Tabular Q-Learning vs DQN (low lr)": {
+            "p_value": 1.1630514088201362e-13,
+            "mean_m1": -2.4275,
+            "mean_m2": -1.1555,
+            "diff": 1.2720000000000002
+        },
+        "Tabular Q-Learning vs DQN (high batch)": {
+            "p_value": 0.002230817581423329,
+            "mean_m1": -2.4275,
+            "mean_m2": -1.6345,
+            "diff": 0.7930000000000001
+        },
+        "Tabular Q-Learning vs Dueling DQN (default)": {
+            "p_value": 8.426224999233115e-09,
+            "mean_m1": -2.4275,
+            "mean_m2": -1.508,
+            "diff": 0.9195000000000002
+        },
+        "Tabular Q-Learning vs Dueling DQN (low lr)": {
+            "p_value": 1.1063008286822242e-20,
+            "mean_m1": -2.4275,
+            "mean_m2": -1.068,
+            "diff": 1.3595000000000002
+        },
+        "Tabular Q-Learning vs Dueling DQN (high batch)": {
+            "p_value": 1.4583679271730684e-09,
+            "mean_m1": -2.4275,
+            "mean_m2": -1.3775,
+            "diff": 1.0500000000000003
+        },
+        "Tabular Q-Learning vs PPO": {
+            "p_value": 1.7053574280552636e-14,
+            "mean_m1": -2.4275,
+            "mean_m2": -1.064,
+            "diff": 1.3635000000000002
+        },
+        "Tabular Q-Learning vs Distributional DQN": {
+            "p_value": 1.8105393538949642e-32,
+            "mean_m1": -2.4275,
+            "mean_m2": -0.9915,
+            "diff": 1.4360000000000002
+        },
+        "Tabular Q-Learning V2 vs DQN (default)": {
+            "p_value": 0.012723716958496903,
+            "mean_m1": -1.0,
+            "mean_m2": -1.292,
+            "diff": -0.29200000000000004
+        },
+        "Tabular Q-Learning V2 vs DQN (low lr)": {
+            "p_value": 0.20589392617381835,
+            "mean_m1": -1.0,
+            "mean_m2": -1.1555,
+            "diff": -0.15549999999999997
+        },
+        "Tabular Q-Learning V2 vs DQN (high batch)": {
+            "p_value": 0.005937165269692972,
+            "mean_m1": -1.0,
+            "mean_m2": -1.6345,
+            "diff": -0.6345000000000001
+        },
+        "Tabular Q-Learning V2 vs Dueling DQN (default)": {
+            "p_value": 1.8984632198222115e-06,
+            "mean_m1": -1.0,
+            "mean_m2": -1.508,
+            "diff": -0.508
+        },
+        "Tabular Q-Learning V2 vs Dueling DQN (low lr)": {
+            "p_value": 0.4138132026055744,
+            "mean_m1": -1.0,
+            "mean_m2": -1.068,
+            "diff": -0.06800000000000006
+        },
+        "Tabular Q-Learning V2 vs Dueling DQN (high batch)": {
+            "p_value": 0.002804311915071005,
+            "mean_m1": -1.0,
+            "mean_m2": -1.3775,
+            "diff": -0.37749999999999995
+        },
+        "Tabular Q-Learning V2 vs PPO": {
+            "p_value": 0.6264336219573421,
+            "mean_m1": -1.0,
+            "mean_m2": -1.064,
+            "diff": -0.06400000000000006
+        },
+        "Tabular Q-Learning V2 vs Distributional DQN": {
+            "p_value": 0.3036502567745834,
+            "mean_m1": -1.0,
+            "mean_m2": -0.9915,
+            "diff": 0.008499999999999952
+        },
+        "DQN (default) vs DQN (low lr)": {
+            "p_value": 0.4213643678960549,
+            "mean_m1": -1.292,
+            "mean_m2": -1.1555,
+            "diff": 0.13650000000000007
+        },
+        "DQN (default) vs DQN (high batch)": {
+            "p_value": 0.1851674183739073,
+            "mean_m1": -1.292,
+            "mean_m2": -1.6345,
+            "diff": -0.3425
+        },
+        "DQN (default) vs Dueling DQN (default)": {
+            "p_value": 0.17211541551830617,
+            "mean_m1": -1.292,
+            "mean_m2": -1.508,
+            "diff": -0.21599999999999997
+        },
+        "DQN (default) vs Dueling DQN (low lr)": {
+            "p_value": 0.118980420140537,
+            "mean_m1": -1.292,
+            "mean_m2": -1.068,
+            "diff": 0.22399999999999998
+        },
+        "DQN (default) vs Dueling DQN (high batch)": {
+            "p_value": 0.6194182891355242,
+            "mean_m1": -1.292,
+            "mean_m2": -1.3775,
+            "diff": -0.08549999999999991
+        },
+        "DQN (default) vs PPO": {
+            "p_value": 0.1953712712922567,
+            "mean_m1": -1.292,
+            "mean_m2": -1.064,
+            "diff": 0.22799999999999998
+        },
+        "DQN (default) vs Distributional DQN": {
+            "p_value": 0.010542939940265564,
+            "mean_m1": -1.292,
+            "mean_m2": -0.9915,
+            "diff": 0.3005
+        },
+        "DQN (low lr) vs DQN (high batch)": {
+            "p_value": 0.06667524566186496,
+            "mean_m1": -1.1555,
+            "mean_m2": -1.6345,
+            "diff": -0.4790000000000001
+        },
+        "DQN (low lr) vs Dueling DQN (default)": {
+            "p_value": 0.030123818134413387,
+            "mean_m1": -1.1555,
+            "mean_m2": -1.508,
+            "diff": -0.35250000000000004
+        },
+        "DQN (low lr) vs Dueling DQN (low lr)": {
+            "p_value": 0.5554887606973267,
+            "mean_m1": -1.1555,
+            "mean_m2": -1.068,
+            "diff": 0.08749999999999991
+        },
+        "DQN (low lr) vs Dueling DQN (high batch)": {
+            "p_value": 0.20757148758274738,
+            "mean_m1": -1.1555,
+            "mean_m2": -1.3775,
+            "diff": -0.22199999999999998
+        },
+        "DQN (low lr) vs PPO": {
+            "p_value": 0.6111641674262358,
+            "mean_m1": -1.1555,
+            "mean_m2": -1.064,
+            "diff": 0.09149999999999991
+        },
+        "DQN (low lr) vs Distributional DQN": {
+            "p_value": 0.18317165420581064,
+            "mean_m1": -1.1555,
+            "mean_m2": -0.9915,
+            "diff": 0.16399999999999992
+        },
+        "DQN (high batch) vs Dueling DQN (default)": {
+            "p_value": 0.6181224171987605,
+            "mean_m1": -1.6345,
+            "mean_m2": -1.508,
+            "diff": 0.12650000000000006
+        },
+        "DQN (high batch) vs Dueling DQN (low lr)": {
+            "p_value": 0.020812436678096034,
+            "mean_m1": -1.6345,
+            "mean_m2": -1.068,
+            "diff": 0.5665
+        },
+        "DQN (high batch) vs Dueling DQN (high batch)": {
+            "p_value": 0.3279299268653929,
+            "mean_m1": -1.6345,
+            "mean_m2": -1.3775,
+            "diff": 0.2570000000000001
+        },
+        "DQN (high batch) vs PPO": {
+            "p_value": 0.03156534580544247,
+            "mean_m1": -1.6345,
+            "mean_m2": -1.064,
+            "diff": 0.5705
+        },
+        "DQN (high batch) vs Distributional DQN": {
+            "p_value": 0.00533237930767289,
+            "mean_m1": -1.6345,
+            "mean_m2": -0.9915,
+            "diff": 0.643
+        },
+        "Dueling DQN (default) vs Dueling DQN (low lr)": {
+            "p_value": 0.001126845841529167,
+            "mean_m1": -1.508,
+            "mean_m2": -1.068,
+            "diff": 0.43999999999999995
+        },
+        "Dueling DQN (default) vs Dueling DQN (high batch)": {
+            "p_value": 0.4290120379085617,
+            "mean_m1": -1.508,
+            "mean_m2": -1.3775,
+            "diff": 0.13050000000000006
+        },
+        "Dueling DQN (default) vs PPO": {
+            "p_value": 0.008672331289333087,
+            "mean_m1": -1.508,
+            "mean_m2": -1.064,
+            "diff": 0.44399999999999995
+        },
+        "Dueling DQN (default) vs Distributional DQN": {
+            "p_value": 1.372916945653621e-06,
+            "mean_m1": -1.508,
+            "mean_m2": -0.9915,
+            "diff": 0.5165
+        },
+        "Dueling DQN (low lr) vs Dueling DQN (high batch)": {
+            "p_value": 0.04063719102177853,
+            "mean_m1": -1.068,
+            "mean_m2": -1.3775,
+            "diff": -0.3094999999999999
+        },
+        "Dueling DQN (low lr) vs PPO": {
+            "p_value": 0.9794893793704048,
+            "mean_m1": -1.068,
+            "mean_m2": -1.064,
+            "diff": 0.0040000000000000036
+        },
+        "Dueling DQN (low lr) vs Distributional DQN": {
+            "p_value": 0.36027718458667446,
+            "mean_m1": -1.068,
+            "mean_m2": -0.9915,
+            "diff": 0.07650000000000001
+        },
+        "Dueling DQN (high batch) vs PPO": {
+            "p_value": 0.08540938366930712,
+            "mean_m1": -1.3775,
+            "mean_m2": -1.064,
+            "diff": 0.3134999999999999
+        },
+        "Dueling DQN (high batch) vs Distributional DQN": {
+            "p_value": 0.0022955511406292668,
+            "mean_m1": -1.3775,
+            "mean_m2": -0.9915,
+            "diff": 0.3859999999999999
+        },
+        "PPO vs Distributional DQN": {
+            "p_value": 0.5821066608497079,
+            "mean_m1": -1.064,
+            "mean_m2": -0.9915,
+            "diff": 0.07250000000000001
+        }
+    },
+    "3": {
+        "Tabular Q-Learning vs Tabular Q-Learning V2": {
+            "p_value": 1.4265868821224422e-35,
+            "mean_m1": -2.4705,
+            "mean_m2": -1.0,
+            "diff": 1.4705
+        },
+        "Tabular Q-Learning vs DQN (default)": {
+            "p_value": 9.792050241738985e-09,
+            "mean_m1": -2.4705,
+            "mean_m2": -1.5885,
+            "diff": 0.8819999999999999
+        },
+        "Tabular Q-Learning vs DQN (low lr)": {
+            "p_value": 4.5931501587752155e-17,
+            "mean_m1": -2.4705,
+            "mean_m2": -1.2245,
+            "diff": 1.246
+        },
+        "Tabular Q-Learning vs DQN (high batch)": {
+            "p_value": 3.9266273790337756e-06,
+            "mean_m1": -2.4705,
+            "mean_m2": -1.7205,
+            "diff": 0.75
+        },
+        "Tabular Q-Learning vs Dueling DQN (default)": {
+            "p_value": 1.2349486501058843e-16,
+            "mean_m1": -2.4705,
+            "mean_m2": -1.294,
+            "diff": 1.1764999999999999
+        },
+        "Tabular Q-Learning vs Dueling DQN (low lr)": {
+            "p_value": 5.905091522678878e-24,
+            "mean_m1": -2.4705,
+            "mean_m2": -1.1635,
+            "diff": 1.307
+        },
+        "Tabular Q-Learning vs Dueling DQN (high batch)": {
+            "p_value": 0.0011274316273638407,
+            "mean_m1": -2.4705,
+            "mean_m2": -0.7795,
+            "diff": 1.6909999999999998
+        },
+        "Tabular Q-Learning vs PPO": {
+            "p_value": 4.7407724396112974e-07,
+            "mean_m1": -2.4705,
+            "mean_m2": -0.84,
+            "diff": 1.6305
+        },
+        "Tabular Q-Learning vs Distributional DQN": {
+            "p_value": 1.0028456871122917e-34,
+            "mean_m1": -2.4705,
+            "mean_m2": -1.0125,
+            "diff": 1.458
+        },
+        "Tabular Q-Learning V2 vs DQN (default)": {
+            "p_value": 5.919670819678884e-09,
+            "mean_m1": -1.0,
+            "mean_m2": -1.5885,
+            "diff": -0.5885
+        },
+        "Tabular Q-Learning V2 vs DQN (low lr)": {
+            "p_value": 0.014372029947729641,
+            "mean_m1": -1.0,
+            "mean_m2": -1.2245,
+            "diff": -0.22449999999999992
+        },
+        "Tabular Q-Learning V2 vs DQN (high batch)": {
+            "p_value": 2.844811158566885e-10,
+            "mean_m1": -1.0,
+            "mean_m2": -1.7205,
+            "diff": -0.7204999999999999
+        },
+        "Tabular Q-Learning V2 vs Dueling DQN (default)": {
+            "p_value": 0.00029643960346626905,
+            "mean_m1": -1.0,
+            "mean_m2": -1.294,
+            "diff": -0.29400000000000004
+        },
+        "Tabular Q-Learning V2 vs Dueling DQN (low lr)": {
+            "p_value": 0.003114245387518176,
+            "mean_m1": -1.0,
+            "mean_m2": -1.1635,
+            "diff": -0.16349999999999998
+        },
+        "Tabular Q-Learning V2 vs Dueling DQN (high batch)": {
+            "p_value": 0.6627151106085507,
+            "mean_m1": -1.0,
+            "mean_m2": -0.7795,
+            "diff": 0.22050000000000003
+        },
+        "Tabular Q-Learning V2 vs PPO": {
+            "p_value": 0.5955991302915618,
+            "mean_m1": -1.0,
+            "mean_m2": -0.84,
+            "diff": 0.16000000000000003
+        },
+        "Tabular Q-Learning V2 vs Distributional DQN": {
+            "p_value": 0.2816686409840156,
+            "mean_m1": -1.0,
+            "mean_m2": -1.0125,
+            "diff": -0.012499999999999956
+        },
+        "DQN (default) vs DQN (low lr)": {
+            "p_value": 0.007535228860034932,
+            "mean_m1": -1.5885,
+            "mean_m2": -1.2245,
+            "diff": 0.3640000000000001
+        },
+        "DQN (default) vs DQN (high batch)": {
+            "p_value": 0.3847308440084882,
+            "mean_m1": -1.5885,
+            "mean_m2": -1.7205,
+            "diff": -0.1319999999999999
+        },
+        "DQN (default) vs Dueling DQN (default)": {
+            "p_value": 0.022799346197672023,
+            "mean_m1": -1.5885,
+            "mean_m2": -1.294,
+            "diff": 0.2945
+        },
+        "DQN (default) vs Dueling DQN (low lr)": {
+            "p_value": 0.00021893530093832424,
+            "mean_m1": -1.5885,
+            "mean_m2": -1.1635,
+            "diff": 0.42500000000000004
+        },
+        "DQN (default) vs Dueling DQN (high batch)": {
+            "p_value": 0.11663949715151113,
+            "mean_m1": -1.5885,
+            "mean_m2": -0.7795,
+            "diff": 0.809
+        },
+        "DQN (default) vs PPO": {
+            "p_value": 0.018585832837391923,
+            "mean_m1": -1.5885,
+            "mean_m2": -0.84,
+            "diff": 0.7485
+        },
+        "DQN (default) vs Distributional DQN": {
+            "p_value": 1.5150831389675258e-08,
+            "mean_m1": -1.5885,
+            "mean_m2": -1.0125,
+            "diff": 0.5760000000000001
+        },
+        "DQN (low lr) vs DQN (high batch)": {
+            "p_value": 0.0006872691472504643,
+            "mean_m1": -1.2245,
+            "mean_m2": -1.7205,
+            "diff": -0.496
+        },
+        "DQN (low lr) vs Dueling DQN (default)": {
+            "p_value": 0.5701131352884299,
+            "mean_m1": -1.2245,
+            "mean_m2": -1.294,
+            "diff": -0.06950000000000012
+        },
+        "DQN (low lr) vs Dueling DQN (low lr)": {
+            "p_value": 0.5686391097806349,
+            "mean_m1": -1.2245,
+            "mean_m2": -1.1635,
+            "diff": 0.06099999999999994
+        },
+        "DQN (low lr) vs Dueling DQN (high batch)": {
+            "p_value": 0.38644568146508607,
+            "mean_m1": -1.2245,
+            "mean_m2": -0.7795,
+            "diff": 0.44499999999999995
+        },
+        "DQN (low lr) vs PPO": {
+            "p_value": 0.2224027186845018,
+            "mean_m1": -1.2245,
+            "mean_m2": -0.84,
+            "diff": 0.38449999999999995
+        },
+        "DQN (low lr) vs Distributional DQN": {
+            "p_value": 0.021820697468883602,
+            "mean_m1": -1.2245,
+            "mean_m2": -1.0125,
+            "diff": 0.21199999999999997
+        },
+        "DQN (high batch) vs Dueling DQN (default)": {
+            "p_value": 0.0022705925140906677,
+            "mean_m1": -1.7205,
+            "mean_m2": -1.294,
+            "diff": 0.4264999999999999
+        },
+        "DQN (high batch) vs Dueling DQN (low lr)": {
+            "p_value": 1.0825903460721983e-05,
+            "mean_m1": -1.7205,
+            "mean_m2": -1.1635,
+            "diff": 0.5569999999999999
+        },
+        "DQN (high batch) vs Dueling DQN (high batch)": {
+            "p_value": 0.06945959309247444,
+            "mean_m1": -1.7205,
+            "mean_m2": -0.7795,
+            "diff": 0.941
+        },
+        "DQN (high batch) vs PPO": {
+            "p_value": 0.006312830178239328,
+            "mean_m1": -1.7205,
+            "mean_m2": -0.84,
+            "diff": 0.8805
+        },
+        "DQN (high batch) vs Distributional DQN": {
+            "p_value": 6.938695397884444e-10,
+            "mean_m1": -1.7205,
+            "mean_m2": -1.0125,
+            "diff": 0.708
+        },
+        "Dueling DQN (default) vs Dueling DQN (low lr)": {
+            "p_value": 0.18365863970289148,
+            "mean_m1": -1.294,
+            "mean_m2": -1.1635,
+            "diff": 0.13050000000000006
+        },
+        "Dueling DQN (default) vs Dueling DQN (high batch)": {
+            "p_value": 0.3150031988405695,
+            "mean_m1": -1.294,
+            "mean_m2": -0.7795,
+            "diff": 0.5145000000000001
+        },
+        "Dueling DQN (default) vs PPO": {
+            "p_value": 0.14595135481128432,
+            "mean_m1": -1.294,
+            "mean_m2": -0.84,
+            "diff": 0.45400000000000007
+        },
+        "Dueling DQN (default) vs Distributional DQN": {
+            "p_value": 0.0006027153284622962,
+            "mean_m1": -1.294,
+            "mean_m2": -1.0125,
+            "diff": 0.2815000000000001
+        },
+        "Dueling DQN (low lr) vs Dueling DQN (high batch)": {
+            "p_value": 0.4502151818294975,
+            "mean_m1": -1.1635,
+            "mean_m2": -0.7795,
+            "diff": 0.384
+        },
+        "Dueling DQN (low lr) vs PPO": {
+            "p_value": 0.29123413826900757,
+            "mean_m1": -1.1635,
+            "mean_m2": -0.84,
+            "diff": 0.3235
+        },
+        "Dueling DQN (low lr) vs Distributional DQN": {
+            "p_value": 0.0075261326807718595,
+            "mean_m1": -1.1635,
+            "mean_m2": -1.0125,
+            "diff": 0.15100000000000002
+        },
+        "Dueling DQN (high batch) vs PPO": {
+            "p_value": 0.9181267744826402,
+            "mean_m1": -0.7795,
+            "mean_m2": -0.84,
+            "diff": -0.0605
+        },
+        "Dueling DQN (high batch) vs Distributional DQN": {
+            "p_value": 0.6449629045103744,
+            "mean_m1": -0.7795,
+            "mean_m2": -1.0125,
+            "diff": -0.23299999999999998
+        },
+        "PPO vs Distributional DQN": {
+            "p_value": 0.5674730514324821,
+            "mean_m1": -0.84,
+            "mean_m2": -1.0125,
+            "diff": -0.1725
+        }
+    },
+    "4": {
+        "Tabular Q-Learning vs Tabular Q-Learning V2": {
+            "p_value": 1.2026806331391178e-26,
+            "mean_m1": -2.311,
+            "mean_m2": -1.0,
+            "diff": 1.311
+        },
+        "Tabular Q-Learning vs DQN (default)": {
+            "p_value": 2.0694933594115365e-06,
+            "mean_m1": -2.311,
+            "mean_m2": -1.486,
+            "diff": 0.825
+        },
+        "Tabular Q-Learning vs DQN (low lr)": {
+            "p_value": 7.859083251909748e-12,
+            "mean_m1": -2.311,
+            "mean_m2": -1.2705,
+            "diff": 1.0405
+        },
+        "Tabular Q-Learning vs DQN (high batch)": {
+            "p_value": 5.170407517085501e-06,
+            "mean_m1": -2.311,
+            "mean_m2": -1.582,
+            "diff": 0.7289999999999999
+        },
+        "Tabular Q-Learning vs Dueling DQN (default)": {
+            "p_value": 4.5825687190229466e-05,
+            "mean_m1": -2.311,
+            "mean_m2": -1.392,
+            "diff": 0.919
+        },
+        "Tabular Q-Learning vs Dueling DQN (low lr)": {
+            "p_value": 2.3022398862130035e-13,
+            "mean_m1": -2.311,
+            "mean_m2": -1.2415,
+            "diff": 1.0695
+        },
+        "Tabular Q-Learning vs Dueling DQN (high batch)": {
+            "p_value": 3.6938424555472765e-06,
+            "mean_m1": -2.311,
+            "mean_m2": -1.5175,
+            "diff": 0.7934999999999999
+        },
+        "Tabular Q-Learning vs PPO": {
+            "p_value": 4.273131605284112e-12,
+            "mean_m1": -2.311,
+            "mean_m2": -1.074,
+            "diff": 1.2369999999999999
+        },
+        "Tabular Q-Learning vs Distributional DQN": {
+            "p_value": 1.380474791287204e-26,
+            "mean_m1": -2.311,
+            "mean_m2": -1.0015,
+            "diff": 1.3094999999999999
+        },
+        "Tabular Q-Learning V2 vs DQN (default)": {
+            "p_value": 9.76754551094903e-05,
+            "mean_m1": -1.0,
+            "mean_m2": -1.486,
+            "diff": -0.486
+        },
+        "Tabular Q-Learning V2 vs DQN (low lr)": {
+            "p_value": 0.0031261531667179147,
+            "mean_m1": -1.0,
+            "mean_m2": -1.2705,
+            "diff": -0.27049999999999996
+        },
+        "Tabular Q-Learning V2 vs DQN (high batch)": {
+            "p_value": 2.76197078556649e-08,
+            "mean_m1": -1.0,
+            "mean_m2": -1.582,
+            "diff": -0.5820000000000001
+        },
+        "Tabular Q-Learning V2 vs Dueling DQN (default)": {
+            "p_value": 0.039167292925062325,
+            "mean_m1": -1.0,
+            "mean_m2": -1.392,
+            "diff": -0.3919999999999999
+        },
+        "Tabular Q-Learning V2 vs Dueling DQN (low lr)": {
+            "p_value": 0.002766545570986723,
+            "mean_m1": -1.0,
+            "mean_m2": -1.2415,
+            "diff": -0.24150000000000005
+        },
+        "Tabular Q-Learning V2 vs Dueling DQN (high batch)": {
+            "p_value": 2.049089135111374e-05,
+            "mean_m1": -1.0,
+            "mean_m2": -1.5175,
+            "diff": -0.5175000000000001
+        },
+        "Tabular Q-Learning V2 vs PPO": {
+            "p_value": 0.5710776947416865,
+            "mean_m1": -1.0,
+            "mean_m2": -1.074,
+            "diff": -0.07400000000000007
+        },
+        "Tabular Q-Learning V2 vs Distributional DQN": {
+            "p_value": 0.3658430883396647,
+            "mean_m1": -1.0,
+            "mean_m2": -1.0015,
+            "diff": -0.0015000000000000568
+        },
+        "DQN (default) vs DQN (low lr)": {
+            "p_value": 0.16301507845782437,
+            "mean_m1": -1.486,
+            "mean_m2": -1.2705,
+            "diff": 0.21550000000000002
+        },
+        "DQN (default) vs DQN (high batch)": {
+            "p_value": 0.5545255749053424,
+            "mean_m1": -1.486,
+            "mean_m2": -1.582,
+            "diff": -0.09600000000000009
+        },
+        "DQN (default) vs Dueling DQN (default)": {
+            "p_value": 0.6789607829643383,
+            "mean_m1": -1.486,
+            "mean_m2": -1.392,
+            "diff": 0.09400000000000008
+        },
+        "DQN (default) vs Dueling DQN (low lr)": {
+            "p_value": 0.0992969508869078,
+            "mean_m1": -1.486,
+            "mean_m2": -1.2415,
+            "diff": 0.24449999999999994
+        },
+        "DQN (default) vs Dueling DQN (high batch)": {
+            "p_value": 0.856137664814055,
+            "mean_m1": -1.486,
+            "mean_m2": -1.5175,
+            "diff": -0.031500000000000083
+        },
+        "DQN (default) vs PPO": {
+            "p_value": 0.022458110916622035,
+            "mean_m1": -1.486,
+            "mean_m2": -1.074,
+            "diff": 0.4119999999999999
+        },
+        "DQN (default) vs Distributional DQN": {
+            "p_value": 0.00010276288650467283,
+            "mean_m1": -1.486,
+            "mean_m2": -1.0015,
+            "diff": 0.48449999999999993
+        },
+        "DQN (low lr) vs DQN (high batch)": {
+            "p_value": 0.0247957677559099,
+            "mean_m1": -1.2705,
+            "mean_m2": -1.582,
+            "diff": -0.3115000000000001
+        },
+        "DQN (low lr) vs Dueling DQN (default)": {
+            "p_value": 0.5644081307801202,
+            "mean_m1": -1.2705,
+            "mean_m2": -1.392,
+            "diff": -0.12149999999999994
+        },
+        "DQN (low lr) vs Dueling DQN (low lr)": {
+            "p_value": 0.8119436009758026,
+            "mean_m1": -1.2705,
+            "mean_m2": -1.2415,
+            "diff": 0.028999999999999915
+        },
+        "DQN (low lr) vs Dueling DQN (high batch)": {
+            "p_value": 0.10383536313926658,
+            "mean_m1": -1.2705,
+            "mean_m2": -1.5175,
+            "diff": -0.2470000000000001
+        },
+        "DQN (low lr) vs PPO": {
+            "p_value": 0.2178438557840906,
+            "mean_m1": -1.2705,
+            "mean_m2": -1.074,
+            "diff": 0.1964999999999999
+        },
+        "DQN (low lr) vs Distributional DQN": {
+            "p_value": 0.0033010066640841826,
+            "mean_m1": -1.2705,
+            "mean_m2": -1.0015,
+            "diff": 0.2689999999999999
+        },
+        "DQN (high batch) vs Dueling DQN (default)": {
+            "p_value": 0.3806969048549099,
+            "mean_m1": -1.582,
+            "mean_m2": -1.392,
+            "diff": 0.19000000000000017
+        },
+        "DQN (high batch) vs Dueling DQN (low lr)": {
+            "p_value": 0.009842543238175537,
+            "mean_m1": -1.582,
+            "mean_m2": -1.2415,
+            "diff": 0.3405
+        },
+        "DQN (high batch) vs Dueling DQN (high batch)": {
+            "p_value": 0.6867407996020893,
+            "mean_m1": -1.582,
+            "mean_m2": -1.5175,
+            "diff": 0.0645
+        },
+        "DQN (high batch) vs PPO": {
+            "p_value": 0.0023911817797253754,
+            "mean_m1": -1.582,
+            "mean_m2": -1.074,
+            "diff": 0.508
+        },
+        "DQN (high batch) vs Distributional DQN": {
+            "p_value": 3.0075072614187745e-08,
+            "mean_m1": -1.582,
+            "mean_m2": -1.0015,
+            "diff": 0.5805
+        },
+        "Dueling DQN (default) vs Dueling DQN (low lr)": {
+            "p_value": 0.4658247506168435,
+            "mean_m1": -1.392,
+            "mean_m2": -1.2415,
+            "diff": 0.15049999999999986
+        },
+        "Dueling DQN (default) vs Dueling DQN (high batch)": {
+            "p_value": 0.5775713291796079,
+            "mean_m1": -1.392,
+            "mean_m2": -1.5175,
+            "diff": -0.12550000000000017
+        },
+        "Dueling DQN (default) vs PPO": {
+            "p_value": 0.16782492363050408,
+            "mean_m1": -1.392,
+            "mean_m2": -1.074,
+            "diff": 0.31799999999999984
+        },
+        "Dueling DQN (default) vs Distributional DQN": {
+            "p_value": 0.03993086456819024,
+            "mean_m1": -1.392,
+            "mean_m2": -1.0015,
+            "diff": 0.39049999999999985
+        },
+        "Dueling DQN (low lr) vs Dueling DQN (high batch)": {
+            "p_value": 0.058019276176773514,
+            "mean_m1": -1.2415,
+            "mean_m2": -1.5175,
+            "diff": -0.276
+        },
+        "Dueling DQN (low lr) vs PPO": {
+            "p_value": 0.27519922234952776,
+            "mean_m1": -1.2415,
+            "mean_m2": -1.074,
+            "diff": 0.16749999999999998
+        },
+        "Dueling DQN (low lr) vs Distributional DQN": {
+            "p_value": 0.002945374997186465,
+            "mean_m1": -1.2415,
+            "mean_m2": -1.0015,
+            "diff": 0.24
+        },
+        "Dueling DQN (high batch) vs PPO": {
+            "p_value": 0.01285152195586497,
+            "mean_m1": -1.5175,
+            "mean_m2": -1.074,
+            "diff": 0.4435
+        },
+        "Dueling DQN (high batch) vs Distributional DQN": {
+            "p_value": 2.168541121958934e-05,
+            "mean_m1": -1.5175,
+            "mean_m2": -1.0015,
+            "diff": 0.516
+        },
+        "PPO vs Distributional DQN": {
+            "p_value": 0.5789364988250579,
+            "mean_m1": -1.074,
+            "mean_m2": -1.0015,
+            "diff": 0.07250000000000001
+        }
+    }
+}
